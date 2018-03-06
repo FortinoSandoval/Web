@@ -1,6 +1,7 @@
 //dependencies
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 //assets
 import logo from './images/logo.svg';
@@ -19,9 +20,11 @@ class Header extends Component {
           <img src={logo} alt="logo" />
           <h2>{title}</h2>
           <ul className="Menu">
-            {items && items.map((items, key)=>
-              <li key={key}>{items.title}</li>
-            )}
+            {
+              items && items.map(
+                (item, key) => <li key={key}><Link to={item.url}>{item.title}</Link></li>
+                )
+            }
           </ul>
         </header>
       </div>
